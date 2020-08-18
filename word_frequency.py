@@ -31,16 +31,19 @@ class WordList:
         """
         self.word_list = self.text.lower().replace(',', ' ').replace(
             '.', ' ').replace('!', ' ').split()
-        return self.word_list
 
     def remove_stop_words(self):
         """
         Removes all stop words from our word list. Expected to
         be run after extract_words.
         """
-        [self.word_list.remove(
-            word) for word in self.word_list for stop_word in STOP_WORDS if word == stop_word]
-        return self.word_list
+        word_list_cleaned = []
+        for word in self.word_list:
+            if word not in STOP_WORDS:
+                word_list_cleaned.append(word)
+        # self.word_list = [word_list_cleaned.append(
+        #     word) for word in self.word_list if word not in STOP_WORDS]
+        self.word_list = word_list_cleaned
 
     def get_freqs(self):
         """
