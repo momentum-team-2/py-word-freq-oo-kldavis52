@@ -41,8 +41,6 @@ class WordList:
         for word in self.word_list:
             if word not in STOP_WORDS:
                 word_list_cleaned.append(word)
-        # self.word_list = [word_list_cleaned.append(
-        #     word) for word in self.word_list if word not in STOP_WORDS]
         self.word_list = word_list_cleaned
 
     def get_freqs(self):
